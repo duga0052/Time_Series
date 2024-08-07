@@ -8,7 +8,7 @@ from src.model.xgboost_model import XGBoostModel
 from src.visualization.plots import plot_line, plot_seasonal_decompose, plot_acf_pacf, plot_differenced_series, plot_model_performance, plot_predictions
 
 # Setup logging
-logging.basicConfig(level=logging.INFO)
+#logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Ensure the log file exists
