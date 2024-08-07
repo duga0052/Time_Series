@@ -1,4 +1,5 @@
 import logging
+import os
 from src.data.data_loader import load_data, convert_date
 from src.data.data_processing import preprocess_data
 from src.feature.feature_selection import select_features
@@ -9,6 +10,18 @@ from src.visualization.plots import plot_line, plot_seasonal_decompose, plot_acf
 # Setup logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# Ensure the log file exists
+log_file_exists = os.path.exists('app.log')
+if not log_file_exists:
+    with open('app.log', 'w') as f:
+        f.write('Log file created.\n')
+
+# Configure logging
+def setup_logging():
+    logging.basicConfig(level=logging.INFO, filename='app.log', filemode='a', format='%(asctime)s - %(levelname)s - %(message)s')
+
+setup_logging()
 
 def main():
     try:
